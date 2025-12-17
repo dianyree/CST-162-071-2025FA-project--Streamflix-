@@ -1,0 +1,25 @@
+package core;
+
+import media.Media;
+import java.util.ArrayList;
+
+public class Profile {
+    private String name;
+    private ArrayList<Media> myList = new ArrayList<>();
+
+    public Profile(String name) {
+        this.name = name;
+    }
+
+    public void addToList(Media m) {
+        myList.add(m);
+    }
+
+    public void removeFromList(Media m) {
+        myList.remove(m);
+    }
+
+    public void showList() {
+        myList.forEach(System.out::println);
+    }
+}
