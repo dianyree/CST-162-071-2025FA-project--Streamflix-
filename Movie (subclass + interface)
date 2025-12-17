@@ -1,0 +1,24 @@
+package media;
+
+public class Movie extends Media {
+
+    public Movie(String title, int year, String genre, double rating) {
+        super(title, year, genre, rating);
+    }
+
+    @Override
+    public void play() {
+        System.out.println("Playing movie: " + title);
+        minutesWatched += 30;
+    }
+
+    @Override
+    public void continueWatching() {
+        System.out.println("Continuing movie: " + title);
+    }
+
+    @Override
+    public String getDetails() {
+        return "Movie: " + toString();
+    }
+}
