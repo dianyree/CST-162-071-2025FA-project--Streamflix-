@@ -1,0 +1,45 @@
+import core.*;
+import media.*;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Catalog catalog = new Catalog();
+        Player player = new Player();
+        Profile profile = new Profile("Guest");
+
+        // Sample data
+        Movie m1 = new Movie("Inception", 2010, "Sci-Fi", 8.8);
+        Series s1 = new Series("The Office", 2005, "Comedy", 8.9);
+
+        catalog.add(m1);
+        catalog.add(s1);
+
+        int choice;
+        do {
+            System.out.println("""
+            1) Browse Catalog
+            2) Search
+            3) My List
+            4) Play Title
+            5) Top Picks
+            0) Exit
+            """);
+
+            choice = sc.nextInt();
+            sc.nextLine();
+
+            switch (choice) {
+                case 1 -> catalog.browse();
+                case 2 -> {
+                    System.out.print("Search: ");
+                    catalog.search(sc.nextLine());
+                }
+                case 4 -> player.play(m1);
+                case 5 -> System.out.println("Top Genre: " + catalog.getTopGenre());
+            }
+        } while (choice != 0);
+    }
+}
