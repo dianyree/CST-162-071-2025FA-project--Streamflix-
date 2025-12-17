@@ -1,0 +1,26 @@
+package media;
+
+import java.util.ArrayList;
+
+public class Season {
+    private int seasonNumber;
+    private ArrayList<Episode> episodes = new ArrayList<>();
+
+    public Season(int num) {
+        this.seasonNumber = num;
+    }
+
+    public void addEpisode(Episode e) {
+        episodes.add(e);
+    }
+
+    public void printEpisodesRecursive(int index) {
+        if (index >= episodes.size()) return;
+        System.out.println("   " + episodes.get(index));
+        printEpisodesRecursive(index + 1);
+    }
+
+    public String toString() {
+        return "Season " + seasonNumber;
+    }
+}
