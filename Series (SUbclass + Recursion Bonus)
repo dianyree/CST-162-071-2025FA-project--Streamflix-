@@ -1,0 +1,38 @@
+package media;
+
+import java.util.ArrayList;
+
+public class Series extends Media {
+    private ArrayList<Season> seasons = new ArrayList<>();
+
+    public Series(String title, int year, String genre, double rating) {
+        super(title, year, genre, rating);
+    }
+
+    public void addSeason(Season season) {
+        seasons.add(season);
+    }
+
+    // 🔁 RECURSION BONUS
+    public void printTree(int index) {
+        if (index >= seasons.size()) return;
+        System.out.println(seasons.get(index));
+        seasons.get(index).printEpisodesRecursive(0);
+        printTree(index + 1);
+    }
+
+    @Override
+    public void play() {
+        System.out.println("Playing series: " + title);
+    }
+
+    @Override
+    public void continueWatching() {
+        System.out.println("Continuing series: " + title);
+    }
+
+    @Override
+    public String getDetails() {
+        return "Series: " + toString();
+    }
+}
