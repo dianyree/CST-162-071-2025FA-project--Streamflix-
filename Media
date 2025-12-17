@@ -1,0 +1,27 @@
+package media;
+
+public abstract class Media implements Playable {
+    protected String title;
+    protected int year;
+    protected String genre;
+    protected double rating;
+    protected int minutesWatched;
+
+    public Media(String title, int year, String genre, double rating) {
+        this.title = title;
+        this.year = year;
+        this.genre = genre;
+        this.rating = rating;
+        this.minutesWatched = 0;
+    }
+
+    public String getGenre() { return genre; }
+    public int getMinutesWatched() { return minutesWatched; }
+
+    public abstract String getDetails();
+
+    @Override
+    public String toString() {
+        return title + " (" + year + ") - " + genre + " ⭐" + rating;
+    }
+}
