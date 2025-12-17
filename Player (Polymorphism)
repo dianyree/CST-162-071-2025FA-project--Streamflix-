@@ -1,0 +1,13 @@
+package core;
+
+import media.Playable;
+
+public class Player {
+    public void play(Playable p) {
+        p.play(); // polymorphic call
+    }
+
+    public void continueWatching(Playable p) {
+        p.continueWatching();
+    }
+}
