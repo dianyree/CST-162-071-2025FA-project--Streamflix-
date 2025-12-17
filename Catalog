@@ -1,0 +1,39 @@
+package core;
+
+import media.Media;
+import java.util.ArrayList;
+
+public class Catalog {
+    private ArrayList<Media> titles = new ArrayList<>();
+
+    public void add(Media m) {
+        titles.add(m);
+    }
+
+    public void browse() {
+        for (Media m : titles) {
+            System.out.println(m.getDetails());
+        }
+    }
+
+    public void search(String keyword) {
+        for (Media m : titles) {
+            if (m.toString().toLowerCase().contains(keyword.toLowerCase())) {
+                System.out.println(m);
+            }
+        }
+    }
+
+    public String getTopGenre() {
+        // Simple most-watched genre
+        int max = 0;
+        String top = "N/A";
+        for (Media m : titles) {
+            if (m.getMinutesWatched() > max) {
+                max = m.getMinutesWatched();
+                top = m.getGenre();
+            }
+        }
+        return top;
+    }
+}
